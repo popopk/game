@@ -19,11 +19,18 @@ public abstract class Character {
     System.out.println(this.name+"達は逃げ出した");
   }
 
+  // public void status(){
+  //   System.out.println("-----------------------------------");
+  //   System.out.println("  "+this.name+"のステータス");
+  //   System.out.println("  HP: "+this.hp);
+  //   System.out.println("  MP: "+this.mp);
+  //   System.out.println("-----------------------------------");
+  // }
   public void status(){
     System.out.println("-----------------------------------");
-    System.out.println("  "+this.name+"のステータス");
-    System.out.println("  HP: "+this.hp);
-    System.out.println("  MP: "+this.mp);
+    System.out.println(String.format("%-3s %-20s %4s","|",this.name+"のステータス","|"));
+    System.out.println(String.format("%-3s HP:%-10d %17s","|",this.hp,"|"));
+    System.out.println(String.format("%-3s MP:%-10d %17s","|",this.mp,"|"));
     System.out.println("-----------------------------------");
   }
 

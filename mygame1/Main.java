@@ -72,7 +72,7 @@ public class Main {
     }catch(InterruptedException e){
     }
 
-    System.out.println("戦闘開始！！！！！");
+    // System.out.println("戦闘開始！！！！！");
     System.out.println("");
 
     try{
@@ -80,9 +80,9 @@ public class Main {
     }catch(InterruptedException e){
     }
 
-    System.out.println("-------------------------------------------------");
-    System.out.println("ダークドレアムがあらわれた！");
-    System.out.println("オルゴ・デミーラがあらわれた！");
+    System.out.println("-------------------------------------------------");//format文日本語入力のときはバグるため、使わないor字数で余白計算
+    System.out.println(String.format("%s %-31s %2s","|","ダークドレアムがあらわれた!","|"));
+    System.out.println(String.format("%s %-30s %2s","|","オルゴ・デミーラがあらわれた!","|"));
     System.out.println("-------------------------------------------------");
     try{
       Thread.sleep(1000);
@@ -101,6 +101,29 @@ public class Main {
       while(heroStatus&&!characters[0].noalive){
         System.out.print("勇者は何をしますか？[１：攻撃　２：魔法攻撃　３：逃げる　４：ステータスを見る]：");
         int heroturn = new Scanner(System.in).nextInt();
+        /*関数化の例
+        関数f(boolean a(heroturn),Character b(hero),Monsters[] c(monsters),Characters[] d(characters),boolean e(heroStatus),boolean f(fight)){
+          while(e&&d[0].allive){
+            switch(a){
+              case 1:
+                b.attack(c);
+                e=false;
+                die(c);
+                break;
+              case 2:
+                b.magic(c,d);
+                e=false;
+                die(c);
+                break;
+              case 3:
+                b.run();
+                f=true;  必要ならreturnで返す
+                e=false;
+                break;
+            }
+          }
+        }
+        */
         switch (heroturn){
           case 1:
             hero.attack(monsters);
